@@ -1,20 +1,12 @@
-from dotenv import load_dotenv
-import os
+def calcular_promedio(notas):
+    """Calcula el promedio aritmético de una lista de notas numéricas.
 
-load_dotenv()
+    Argumentos:
+    notas (list): Lista de enteros o flotantes con las calificaciones.
 
-app = os.getenv("APP_NAME", "sin nombre")
-version = os.getenv("APP_VERSION", "1.0")
-debug = os.getenv("DEBUG", "False")
-
-
-def mostrar_config(app, version, debug):
-    if debug == "True":
-        print(f"[DEBUG] App: {app} v{version}")
-    else:
-        print(f"App: {app} v{version}")
-    return {"app": app, "version": version, "debug": debug}
-
-
-config = mostrar_config(app, version, debug)
-print(f"Configuración cargada: {len(config)} variables")
+    Retorna:
+    float: El promedio ponderado de las notas de la lista.
+    """
+    if not notas:
+        return 0.0
+    return sum(notas) / len(notas)
